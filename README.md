@@ -1,7 +1,5 @@
-
-<div style='text-align: right;'>
-   GitHub HowTo 
-</div>
+# GitHub HowTo 
+--------------
 
 ## Actualizar la repo de linux:
 
