@@ -76,11 +76,11 @@ git init
 ```
 ##### Aca pones tu usuario,el mail de github, y el nombre de tu repo.git, asi solo copias y pegas las otras lineas:
 ```bash
-USER="jaimito"
+U="jaimito"
 ```
 
 ```bash
-MAIL="mail@gmail.com"
+M="mail@gmail.com"
 ```
 
 ```bash
@@ -89,10 +89,10 @@ REPO="unrepo"
 
 ## Configuras tus credenciales:
 ```bash
-git config --global user.email ${MAIL}
+git config --global user.email ${M}
 ```
 ```bash
-git config --global user.name ${USER}
+git config --global user.name ${U}
 ```
 ```bash
 git config --global --replace-all credential.helper store
@@ -100,7 +100,7 @@ git config --global --replace-all credential.helper store
 
 ## Indicas a Git donde esta tu repo en la web:
 ```bash
-git remote add origin https://github.com/${USER}/${REPO}.git
+git remote add origin https://github.com/${U}/${REPO}.git
 ```
 
 ## Indicas que es la rama(branch) principal(main):
@@ -132,7 +132,7 @@ git push -u origin main
 
 ## Te va a pedir el nombre de tu usuario:
 ```bash
-${USER}
+${U}
 ```
 
 
@@ -156,7 +156,7 @@ Crear directorio con el nombre de la repo nueva y moverte a esa carpeta, iniciar
 mkdir nuevarepo
 cd nuevarepo
 git init
-git remote add origin https://github.com/${USER}/${REPO}.git
+git remote add origin https://github.com/${U}/${REPO}.git
 git branch -M main
 ```
 
