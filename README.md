@@ -27,6 +27,21 @@ sudo apt install -y git wget
 Obtener última versión en: 
 - https://github.com/git-ecosystem/git-credential-manager/releases
 
+# Obtener la última versión desde la API de GitHub:
+```bash
+latest_version=$(curl -s "https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+```
+
+# Construir el enlace de descarga:
+```bash
+download_link="https://github.com/git-ecosystem/git-credential-manager/releases/download/${latest_version}/gcm-linux_amd64.${latest_version}.deb"
+```
+
+# Descargar el archivo .deb:
+```bash
+wget "$download_link"
+```
+
 ```bash
 wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.4.1/gcm-linux_amd64.2.4.1.deb"
 ```
