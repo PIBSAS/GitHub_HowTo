@@ -74,11 +74,22 @@ cd unrepo
 ```bash
 git init
 ```
+##### Aca pones tu usuario y el mail, asi solo copias y pegas las otras lineas:
+```bash
+$USER="jaimito"
+```
 
+```bash
+$MAIL="mail@gmail.com"
+```
 ## Configuras tus credenciales:
 ```bash
-git config --global user.email "El_MAIL_QUE_USAS_EN_GITHUB@gmail.com"
-git config --global user.name "TU_USUARIO"
+git config --global user.email ${MAIL}
+```
+```bash
+git config --global user.name ${USER}
+```
+```bash
 git config --global --replace-all credential.helper store
 ```
 
