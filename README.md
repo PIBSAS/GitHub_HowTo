@@ -24,39 +24,32 @@ sudo apt install -y git wget
 ```
 
 ## Bajas GitHub Credential Manager para que guarde tu usuario y password y no vuelva a pedirlo:
-Obtener última versión en: 
-- https://github.com/git-ecosystem/git-credential-manager/releases
 
-# Obtener la última versión desde la API de GitHub automaticamente:
+### Obtener la última versión desde la API de GitHub automaticamente:
 ```bash
 latest=$(curl -s "https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 ```
 
-# Eliminar el prefijo 'v' del número de versión:
+#### Eliminar el prefijo 'v' del número de versión:
 ```bash
 version=$(echo "$latest" | sed 's/v//')
 ```
 
-# Construir el enlace de descarga:
+#### Construir el enlace de descarga:
 ```bash
 link="https://github.com/git-ecosystem/git-credential-manager/releases/download/${latest}/gcm-linux_amd64.${version}.deb"
 ```
 
-# Descargar el archivo .deb:
+#### Descargar el archivo .deb:
 ```bash
 wget "$link"
 ```
-
-```bash
-wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.4.1/gcm-linux_amd64.2.4.1.deb"
-```
-
-## Lo instalas:
+#### Lo instalas:
 ```bash
 sudo dpkg -i *.deb
 ```
 
-## Borras el deb, ya no lo necesitas:
+#### Borras el deb, ya no lo necesitas:
 ```bash
 rm gcm*.deb
 ```
