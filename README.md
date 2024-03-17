@@ -20,7 +20,7 @@ git --version
 
 ## Si te da error, no está instalada, la instalas:
 ```bash
-sudo apt install -y git wget
+sudo apt install -y git wget curl
 ```
 
 ## Bajas GitHub Credential Manager para que guarde tu usuario y password y no vuelva a pedirlo:
