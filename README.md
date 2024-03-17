@@ -1,8 +1,3 @@
-# GitHub HowTo
---------------
-
-<h1 style="text-align: center;">GitHub HowTo</h1>
-
 <h1 align="center">GitHub HowTo</h1>
 <hr>
 
