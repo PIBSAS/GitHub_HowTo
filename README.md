@@ -168,3 +168,15 @@ git pull origin main
 ```
 
 Listo
+
+# Todo de una hasta el pedido de usuario y Token:
+- Cambiar ``PIBSAS`` por tu usuario, ``TU_MAIL`` por tu correo y ``unrepo`` por el nombre del repositorio que creaste.
+
+```bash
+sudo apt update && sudo apt upgrade -y && sudo apt install -y git wget curl && mkdir otro && cd otro && git init && U="PIBSAS" && M="TU_MAIL@gmail.com" && REPO="unrepo" && git config --global user.email ${M} && git config --global user.name ${U} && git config --global --replace-all credential.helper store && git remote add origin https://github.com/${U}/${REPO}.git && git branch -M main && touch unejemplo.txt && git add . && git commit -m "Estas subiendo algo" && git push -u origin main
+```
+###### Luego ingresas:
+```bash
+${U}
+```
+y el Token.
