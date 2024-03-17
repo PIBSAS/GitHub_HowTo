@@ -1,4 +1,4 @@
-<h1 style="text-align: center;"> GitHub_HowTo </h1>
+<h1 style="text-align: center"> GitHub HowTo </h1>
 
 ## Actualizar la repo de linux:
 
