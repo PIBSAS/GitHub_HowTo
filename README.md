@@ -18,7 +18,7 @@ sudo apt upgrade -y
 sudo apt install -y git wget curl
 ```
 
-## Bajas GitHub Credential Manager para que guarde tu usuario y password y no vuelva a pedirlo:
+## [Se Puede saltear esto]Bajas GitHub Credential Manager para que guarde tu usuario y password y no vuelva a pedirlo:
 
 ### Obtener la última versión desde la API de GitHub automaticamente:
 ```bash
