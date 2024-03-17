@@ -60,7 +60,7 @@ Una vez creado vas a tu perfil a la foto arriba a la derecha, elegis settings ->
 
 ## Volves a la terminal de linux:
 
-### Creas la carpeta de tu repo, nombrandola como se te antoje, pero lo lógico es nombrarla como se llamará tu repo:
+### Creas la carpeta de tu repo, nombrandola como se te antoje, pero lo lógico es nombrarla tal cual se llamará tu repo:
 ```bash
 mkdir unrepo
 ```
@@ -84,7 +84,7 @@ MAIL="mail@gmail.com"
 ```
 
 ```bash
-REPO="unrepo.git"
+REPO="unrepo"
 ```
 
 ## Configuras tus credenciales:
@@ -100,7 +100,7 @@ git config --global --replace-all credential.helper store
 
 ## Indicas a Git donde esta tu repo en la web:
 ```bash
-git remote add origin https://github.com/${USER}/${REPO}
+git remote add origin https://github.com/${USER}/${REPO}.git
 ```
 
 ## Indicas que es la rama(branch) principal(main):
@@ -156,7 +156,7 @@ Crear directorio con el nombre de la repo nueva y moverte a esa carpeta, iniciar
 mkdir nuevarepo
 cd nuevarepo
 git init
-git remote add origin https://github.com/${USER}/${REPO}
+git remote add origin https://github.com/${USER}/${REPO}.git
 git branch -M main
 ```
 
