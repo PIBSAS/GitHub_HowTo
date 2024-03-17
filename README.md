@@ -13,11 +13,6 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-## Verificar que git esta instalado, preguntando su versión:
-```bash
-git --version
-```
-
 ## Si te da error, no está instalada, la instalas:
 ```bash
 sudo apt install -y git wget curl
