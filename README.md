@@ -1,4 +1,4 @@
-** GitHub_HowTo **
+**GitHub_HowTo**
 
 ## Actualizar la repo de linux:
 
