@@ -1,4 +1,4 @@
-**GitHub_HowTo**
+<h1 style="text-align: center;">GitHub_HowTo</h1>
 
 ## Actualizar la repo de linux:
 
@@ -39,8 +39,9 @@ sudo dpkg -i *.deb
 rm gcm*.deb
 ```
 
-Vas a tu github en la web y creas un repositorio sin readme. 
+<p style="text-align: center;">Vas a tu github en la web y creas un repositorio sin readme. 
 Una vez creado vas a tu perfil a la foto arriba a la derecha, elegis settings -> Developer Settings(a la izquierda abajo de todo) -> Personal access tokens -> Tokens(classic) -> Generate new token -> Generate New token(classic)-> En Note escribis algo ejemmplo Repos desde PC, en Expiration elegis 30 dias o no expiration o lo que te parezca, tildas public_repo -> Elegis Generate Token(el botón verde abajo) -> Copias el Token y enviatelo por mail o guardalo en algun lado lo necesitas como password.
+</p>
 
 ## Volves a la terminal de linux:
 
