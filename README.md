@@ -197,10 +197,22 @@ git lfs install
 ```bash
  git lfs track "*.PUP"
 ```
-
-- Luego son los pasos de siempre:
+- Recomiendan subir el .gitattributes al GitHub asi que:
+```bash
+git add .gitattributes
+git commit -m "Track *.PUP files with Git LFS"
+git push -u origin main
+```
+- Luego son los pasos de siempre, pero al hacer el add si tenes archivos con la misma extensión que no necesitan usar Git LFS, entonces indicas ruta completa y extension:
 ```bash
 git add .
+git commit -m "Subiendo cosas"
+git push -u origin main
+```
+
+- Ejemplo:
+```bash
+git add carpeta/archivo.PUP
 git commit -m "Subiendo cosas"
 git push -u origin main
 ```
