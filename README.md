@@ -180,3 +180,27 @@ sudo apt update && sudo apt upgrade -y && sudo apt install -y git wget curl && m
 ${U}
 ```
 y el Token.
+
+# Git Large File System:
+
+- Instalamos la extensión:
+```bash
+sudo apt install git-lfs
+```
+
+- Vamos al repositorio en la PC e inicializamos Git LFS, esto se realiza una sola vez por cuenta:
+```bash
+git lfs install
+```
+
+- Indicamos la extensión del archivo que es mayor a 50MB, ejemplo un archivo .PUP (si tenes distintas extensiones, repetis para cada extensión):
+```bash
+ git lfs track "*.PUP"
+```
+
+- Luego son los pasos de siempre:
+```bash
+git add .
+git commit -m "Subiendo cosas"
+git push -u origin main
+```
