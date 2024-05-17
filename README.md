@@ -216,3 +216,8 @@ git add carpeta/archivo.PUP
 git commit -m "Subiendo cosas"
 git push -u origin main
 ```
+
+- Para ver los archivos en Git LFS:
+```bash
+git lfs ls-files
+```
