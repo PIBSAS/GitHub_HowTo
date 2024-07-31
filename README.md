@@ -17,38 +17,7 @@ sudo apt upgrade -y
 ```bash
 sudo apt install -y git wget curl
 ```
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## [Se Puede saltear esto]Bajas GitHub Credential Manager para que guarde tu usuario y password y no vuelva a pedirlo:
 
-- ### Obtener la última versión desde la API de GitHub automaticamente:
-  - ```bash
-    latest=$(curl -s "https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    ```
-
-- #### Eliminar el prefijo 'v' del número de versión:
-  - ```bash
-    version=$(echo "$latest" | sed 's/v//')
-    ```
-
-- #### Construir el enlace de descarga:
-  - ```bash
-    link="https://github.com/git-ecosystem/git-credential-manager/releases/download/${latest}/gcm-linux_amd64.${version}.deb"
-    ```
-
-- #### Descargar el archivo .deb:
-  - ```bash
-    wget "$link"
-    ```
-- #### Lo instalas:
-  - ```bash
-    sudo dpkg -i *.deb
-    ```
-
-- #### Borras el deb, ya no lo necesitas:
-  - ```bash
-    rm gcm*.deb
-    ```
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <p style="text-align: center;">Vas a tu github en la web y creas un repositorio sin readme. 
 Una vez creado vas a tu perfil a la foto arriba a la derecha, elegis settings -> Developer Settings(a la izquierda abajo de todo) -> Personal access tokens -> Tokens(classic) -> Generate new token -> Generate New token(classic)-> En Note escribis algo ejemmplo Repos desde PC, en Expiration elegis 30 dias o no expiration o lo que te parezca, tildas public_repo -> Elegis Generate Token(el botón verde abajo) -> Copias el Token y enviatelo por mail o guardalo en algun lado lo necesitas como password.
 </p>
@@ -221,3 +190,38 @@ git push -u origin main
 ```bash
 git lfs ls-files
 ```
+
+# Si fallan las credenciales:
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## [Se Puede saltear esto]Bajas GitHub Credential Manager para que guarde tu usuario y password y no vuelva a pedirlo:
+
+- ### Obtener la última versión desde la API de GitHub automaticamente:
+  - ```bash
+    latest=$(curl -s "https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    ```
+
+- #### Eliminar el prefijo 'v' del número de versión:
+  - ```bash
+    version=$(echo "$latest" | sed 's/v//')
+    ```
+
+- #### Construir el enlace de descarga:
+  - ```bash
+    link="https://github.com/git-ecosystem/git-credential-manager/releases/download/${latest}/gcm-linux_amd64.${version}.deb"
+    ```
+
+- #### Descargar el archivo .deb:
+  - ```bash
+    wget "$link"
+    ```
+- #### Lo instalas:
+  - ```bash
+    sudo dpkg -i *.deb
+    ```
+
+- #### Borras el deb, ya no lo necesitas:
+  - ```bash
+    rm gcm*.deb
+    ```
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
