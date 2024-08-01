@@ -148,7 +148,7 @@ git init
 git branch -M main
 ```
 
-##Crear o meterle cosas a la carpeta y hacer add, commit y push a la nueva repo:
+## Crear o meterle cosas a la carpeta y hacer add, commit y push a la nueva repo:
 ```bash
 git add .
 git commit -m "Subiendo cosas"
