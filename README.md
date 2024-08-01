@@ -18,8 +18,9 @@ sudo apt upgrade -y
 sudo apt install -y git wget curl
 ```
 
+## Creas un Tokken Classic para realizar el login
 <p style="text-align: center;">Vas a tu github en la web y creas un repositorio sin readme. 
-Una vez creado vas a tu perfil a la foto arriba a la derecha, elegis settings -> Developer Settings(a la izquierda abajo de todo) -> Personal access tokens -> Tokens(classic) -> Generate new token -> Generate New token(classic)-> En Note escribis algo ejemmplo Repos desde PC, en Expiration elegis 30 dias o no expiration o lo que te parezca, tildas public_repo -> Elegis Generate Token(el botón verde abajo) -> Copias el Token y enviatelo por mail o guardalo en algun lado lo necesitas como password.
+Una vez creado vas a tu perfil a la foto arriba a la derecha, elegis <b>Settings</b> -> <b>Developer Settings</b>(A la izquierda abajo de todo) -> <b>Personal Access Tokens</b> -> <b>Tokens(classic)</b> -> <b>Generate new token</b> -> <b>Generate New token(classic)</b> -> En Note escribis algo, ejemplo: Repos desde PC, en <b>Expiration</b> elegis 30 dias o no expiration o lo que te parezca, tildas <b>public_repo</b> -> Elegis <b>Generate Token</b>(el botón verde abajo) -> Copias el Token y enviatelo por mail o guardalo en algun lado lo necesitas como password.
 </p>
 
 ## Volves a la terminal de linux:
@@ -40,11 +41,11 @@ git init
 ```
 ##### Aca pones tu usuario,el mail de github, y el nombre de tu repo.git, asi solo copias y pegas las otras lineas:
 ```bash
-U="jaimito"
+U="PIBSAS"
 ```
 
 ```bash
-M="mail@gmail.com"
+M="correo@gmail.com"
 ```
 
 ```bash
@@ -100,7 +101,8 @@ ${U}
 ```
 
 
-Y te va a paedir el password, que en realidad es el Token que creaste, lo pegas, no se ve nada asi que talvez debas intentar un par de veces repitiendo el comando, una vez que pegas le das a enter y empieza a subir el/los archivos, a la vez se va a guardar en la pc tus credenciales y ya no te las pedira.
+## Te va a paedir el password:
+- Que en realidad es el Token que creaste, lo pegas, no se ve nada, asi que talvez, debas intentar un par de veces repitiendo el comando, una vez que pegas le das a ``enter`` y empieza a subir el/los archivos, a la vez se va a guardar en la pc tus credenciales y ya no te las pedirá.
 
 ## Desde ahora en adelante, solo haras esto si estas en la misma repo:
 ```bash
@@ -109,12 +111,14 @@ git commit -m "Subiendo cosas"
 git push -u origin main
 ```
 
-
 y nada mas, bueh obvio crear, copiar y pegar archivos y carpetas que quieras guardar.
 
 ## Y si vas a crear una nueva repo, repetiras solo estos pasos:
-Crear el repo en la web.
-Crear directorio con el nombre de la repo nueva y moverte a esa carpeta, iniciar git, agregar la url a la nueva repo, indicar el branch main.
+-- Crear el repo en la web.
+-- Crear directorio con el nombre de la repo nueva y moverte a esa carpeta
+-- Iniciar git
+-- Agregar la url a la nueva repo
+-- Indicar el branch main.
 
 ```bash
 mkdir nuevarepo
@@ -134,6 +138,21 @@ git push -u origin main
 ## Y cuando hagas cambios via web, luego debes traerlos al pc con:
 ```bash
 git pull origin main
+```
+
+# Partiendo de una clonación:
+```bash
+git clone https://github.com/${U}/${REPO}.git
+cd repoCLONADA
+git init
+git branch -M main
+```
+
+##Crear o meterle cosas a la carpeta y hacer add, commit y push a la nueva repo:
+```bash
+git add .
+git commit -m "Subiendo cosas"
+git push -u origin main
 ```
 
 Listo
