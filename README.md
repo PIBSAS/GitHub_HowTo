@@ -114,11 +114,11 @@ git push -u origin main
 y nada mas, bueh obvio crear, copiar y pegar archivos y carpetas que quieras guardar.
 
 ## Y si vas a crear una nueva repo, repetiras solo estos pasos:
--- Crear el repo en la web.
--- Crear directorio con el nombre de la repo nueva y moverte a esa carpeta
--- Iniciar git
--- Agregar la url a la nueva repo
--- Indicar el branch main.
+- Crear el repo en la web.
+- Crear directorio con el nombre de la repo nueva y moverte a esa carpeta
+- Iniciar git
+- Agregar la url a la nueva repo
+- Indicar el branch main.
 
 ```bash
 mkdir nuevarepo
