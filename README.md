@@ -15,7 +15,7 @@ sudo apt upgrade -y
 
 ## Instalas por si no están en tu distribución Linux:
 ```bash
-sudo apt install -y git wget curl
+sudo apt install -y git gh wget curl
 ```
 
 ## Creas un Tokken Classic para realizar el login
@@ -25,6 +25,36 @@ Una vez creado vas a tu perfil a la foto arriba a la derecha, elegis <b>Settings
 
 ## Volves a la terminal de linux:
 
+```bash
+gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: 432A-ABC4
+Press Enter to open github.com in your browser... (Aca en realidad debemos presionar ctrl+ left click para que se abra el enlace y pegar el codigo generado)
+```
+## Tras esto podremos clonar, crear, hacer pull request, actions, workflows, issues. Pero para agregar contenido y hacer push aun usaremos git, asi también para nuestras credenciales.
+# Con GH (Requiere haber configurado usuario y correo, agregado a los pasos para simplicidad):
+```bash
+U="PIBSAS"
+M="correo@gmail.com"
+git config --global user.email ${M}
+git config --global user.name ${U}
+git config --global --replace-all credential.helper store
+gh repo create NOMBRE_REPO --public NOMBRE_REPO
+gh repo clone ${USER}/NOMBRE_REPO
+cd NOMBRE_REPO
+echo "# REPO creada desde la compu con gh" > README.md
+git add .
+git commit -m "Primer commit: añadir README.md"
+git push -u origin main
+
+```
+- Te dirá que haz clonado un repo vacio, al clonar, pero luego haces un echo y lo guardas a lo entrecomillado en un archivo y lo subes a esa repo, puedes abrir el navegador y encontrar este repo creado desde tu pc.
+
+# Con GIT
 ### Creas la carpeta de tu repo, nombrandola como se te antoje, pero lo lógico es nombrarla tal cual se llamará tu repo:
 ```bash
 mkdir unrepo
@@ -128,7 +158,7 @@ git remote add origin https://github.com/${U}/${REPO}.git
 git branch -M main
 ```
 
-##Crear o meterle cosas a la carpeta y hacer add, commit y push a la nueva repo:
+## Crear o meterle cosas a la carpeta y hacer add, commit y push a la nueva repo:
 ```bash
 git add .
 git commit -m "Subiendo cosas"
