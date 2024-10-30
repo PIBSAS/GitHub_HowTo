@@ -25,35 +25,6 @@ Una vez creado vas a tu perfil a la foto arriba a la derecha, elegis <b>Settings
 
 ## Volves a la terminal de linux:
 
-```bash
-gh auth login
-? What account do you want to log into? GitHub.com
-? What is your preferred protocol for Git operations? HTTPS
-? Authenticate Git with your GitHub credentials? Yes
-? How would you like to authenticate GitHub CLI? Login with a web browser
-
-! First copy your one-time code: 432A-ABC4
-Press Enter to open github.com in your browser... (Aca en realidad debemos presionar ctrl+ left click para que se abra el enlace y pegar el codigo generado)
-```
-## Tras esto podremos clonar, crear, hacer pull request, actions, workflows, issues. Pero para agregar contenido y hacer push aun usaremos git, asi también para nuestras credenciales.
-# Con GH (Requiere haber configurado usuario y correo, agregado a los pasos para simplicidad):
-```bash
-U="PIBSAS"
-M="correo@gmail.com"
-git config --global user.email ${M}
-git config --global user.name ${U}
-git config --global --replace-all credential.helper store
-gh repo create NOMBRE_REPO --public NOMBRE_REPO
-gh repo clone ${USER}/NOMBRE_REPO
-cd NOMBRE_REPO
-echo "# REPO creada desde la compu con gh" > README.md
-git add .
-git commit -m "Primer commit: añadir README.md"
-git push -u origin main
-
-```
-- Te dirá que haz clonado un repo vacio, al clonar, pero luego haces un echo y lo guardas a lo entrecomillado en un archivo y lo subes a esa repo, puedes abrir el navegador y encontrar este repo creado desde tu pc.
-
 # Con GIT
 ### Creas la carpeta de tu repo, nombrandola como se te antoje, pero lo lógico es nombrarla tal cual se llamará tu repo:
 ```bash
@@ -274,3 +245,239 @@ git lfs ls-files
     rm gcm*.deb
     ```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# GH GitHub CLI
+ - Simplifica tareas, como loguearnos sin necesidad de tener un Token creado en la cuenta, clonación más simple al solo indicar usuario y nombre de repo,
+ - igualmente aun usaremos git para realizar tareas básicas como add, commit y push o pull.
+
+## Pasos:
+
+-- Iniciamos los pasos para loguearnos:
+
+```bash
+gh auth login
+```
+
+- Nos consulta si es desde GitHub.com  o desde GitHub Enterprise, salvo que tengas Enterprise, usas la primer opción:
+```bash
+? What account do you want to log into?  [Use arrows to move, type to filter]
+> GitHub.com
+  GitHub Enterprise Server
+```
+
+- Indicamos que protocolo preferimos, HTTPS o SSH(Los pasos siguientes son eligiendo HTTPS, más abajo se muestran los de SSH, utiles para manejo de gran cantidad de archivos):
+
+```bash
+? What is your preferred protocol for Git operations?  [Use arrows to move, type to filter]
+> HTTPS
+  SSH
+```
+
+- Indicamos si iniciamos sesion con las credenciales:
+
+```bash
+? Authenticate Git with your GitHub credentials? Yes
+```
+
+- Nos consulta si queremos usar Token o Login mediante navegador, mediante navegador usa 2FA:
+
+```bash
+? How would you like to authenticate GitHub CLI? Login with a web browser
+```
+- Copiamos el código que se genera, para pegarlo o ingresarlo en el navegador, presionamos ENTER:
+- Si no te abre el enlace al hacer clic, usa Ctrl+Left Click, indica con que cuenta iniciaras sesion, haz el tipico 2FA y pega el código.
+```bash
+! First copy your one-time code: 432A-ABC4
+Press Enter to open github.com in your browser... (Aca en realidad debemos presionar ctrl+ left click para que se abra el enlace y pegar el codigo generado)
+```
+## Tras esto podremos clonar, crear, hacer pull request, actions, workflows, issues. Pero para agregar contenido y hacer push aun usaremos git, asi también para nuestras credenciales.
+
+```bash
+U="PIBSAS"
+M="correo@gmail.com"
+git config --global user.email ${M}
+git config --global user.name ${U}
+git config --global --replace-all credential.helper store
+gh repo create NOMBRE_REPO --public
+gh repo clone ${U}/NOMBRE_REPO
+cd NOMBRE_REPO
+echo "# REPO creada desde la compu con gh" > README.md
+git add .
+git commit -m "Primer commit: añadir README.md"
+git push -u origin main
+```
+- Te dirá que haz clonado un repo vacio, al clonar, pero luego haces un echo y lo guardas a lo entrecomillado en un archivo y lo subes a esa repo, puedes abrir el navegador y encontrar este repo creado desde tu pc.
+
+## Si elegiste SSH y no HTTPS:
+-- Iniciamos los pasos para loguearnos:
+
+```bash
+gh auth login
+```
+
+- Nos consulta si es desde GitHub.com  o desde GitHub Enterprise, salvo que tengas Enterprise, usas la primer opción:
+```bash
+? What account do you want to log into?  [Use arrows to move, type to filter]
+> GitHub.com
+  GitHub Enterprise Server
+```
+
+- Indicamos que protocolo preferimos, SSH:
+
+```bash
+? What is your preferred protocol for Git operations?  [Use arrows to move, type to filter]
+  HTTPS
+> SSH
+```
+
+- Indicamos si iniciamos sesion con las credenciales:
+
+```bash
+? Authenticate Git with your GitHub credentials? Yes
+```
+- Nos consulta si queremos generar una nueva clave SSH para agregar a nuestra cuenta, indicamos que si:
+? Generate a new SSH key to add to your GitHub account? (Y/n) Y
+
+- Nos pide indicar una frase de paso, es opcional, lo pedirá cada vez que hagamos push o pull, agregamos una:
+? Enter a passphrase for your new SSH key (Optional) Habia una vez trus
+- Nos indica que coloquemos un titulo a la clave:
+ ? Title for your SSH key: (GitHub CLI) La llave
+
+- Nos consulta si queremos usar Token o Login mediante navegador, mediante navegador usa 2FA:
+
+```bash
+? How would you like to authenticate GitHub CLI?  [Use arrows to move, type to filter]
+> Login with a web browser
+  Paste an authentication token
+```
+- Copiamos el código que se genera, para pegarlo o ingresarlo en el navegador, presionamos ENTER:
+- Si no te abre el enlace al hacer clic, usa Ctrl+Left Click, indica con que cuenta iniciaras sesion, si ya estas lopgueado en el navegador le darás a continuar, sino haz el tipico 2FA y pega el código, das a continuar, autorizas a GitHub CLI, haces nuevamente un 2FA si hace rato que no te logueabas.
+```bash
+! First copy your one-time code: 432A-ABC4
+Press Enter to open github.com in your browser...
+```
+## Tras esto te llega un correo avisandote de que existe una nueva SSH authentication public key , con esto de gh podremos clonar, crear, hacer pull request, actions, workflows, issues. Pero para agregar contenido y hacer push aun usaremos git, asi también para nuestras credenciales.
+
+- Al volver a la terminal veremos:
+
+```bash
+✓ Authentication complete.
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+✓ Uploaded the SSH key to your GitHub account: /home/user/.ssh/xxxxxx.pub
+✓ Logged in as TU_USUARIO
+```
+
+## Ahora nos toca indicarle al sistema sobre la clave SSH para que no este preguntando en cada push la passphrase, esto depende de cada uno hacerlo, por seguridad se puede omitir, es la comodidad de cada uno:
+
+- Primero listamos el directorio ssh para ver que exista un archibo .pub:
+```bash
+ls ~/.ssh/
+id_ed23983  id_ed23983.pub
+```
+
+- Nos fijamos que el Agente SSH este corriendo en nuestro sistema:
+```bash
+ eval "$(ssh-agent -s)"
+```
+
+- Veremos algo como:
+```bash
+Agent pid 31
+```
+
+- Usaremos el nombre del .pub para agregarlo con ssh-add, nos pedira el passphrase, si no lo hiciste presiona ENTER:
+```bash
+ssh-add ~/.ssh/id_ed23983
+Enter passphrase for /home/user/.ssh/id_ed23983:
+Identity added: /home/user/.ssh/id_ed23983 (/home/user/.ssh/id_ed23983)
+```
+
+- Tras ello verificamos con GitHub:
+```bash
+ssh -T git@github.com
+```
+
+- Nos muestra y consulta si quermos conectar, obviamente yes:
+```bash
+The authenticity of host 'github.com (20.291.90.006)' can't be established.
+ED23983 key fingerprint is SHA256:+PjM4wvvF6NuILhbpAidR/a34K0z!M3vHdkd4fUvgObo.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+```
+- Tras lo cual nos indica:
+```bash
+Warning: Permanently added 'github.com' (ED23983) to the list of known hosts.
+Hi PIBSAS! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+- Listo al hacer un push o cualquier otro paso que requiriese el passphrase no deberemos ingresarlo.
+
+## A partir de aca los pasos basicos, recordando que al hacer la clonación estaremos usando el protocolo SSH:
+
+```bash
+U="PIBSAS"
+M="lucianotech@gmail.com"
+git config --global user.email ${M}
+git config --global user.name ${U}
+git config --global --replace-all credential.helper store
+gh repo create NOMBRE_REPO --public
+gh repo clone ${U}/NOMBRE_REPO
+cd NOMBRE_REPO
+echo "# REPO creada desde la compu con gh" > README.md
+git add .
+git commit -m "Primer commit: añadir README.md"
+git push -u origin main
+```
+
+Si tenemos problemas de RPC curl 22 HTTP 500 o 400 podemos elevar el postBuffer:
+```bash
+git config --global http.postBuffer 2147483648  # 2GB
+```
+Si continuan,  recuerda que son 100MB por archivo, y 2GB por push, asi que limita los push, no subas mucha carga de una vez.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Creación de submodulos en nuestra repo:
+- Iniciamos creando una repo.
+```bash
+gh repo create REPOSUBMODULE --public
+gh repo clone PIBSAS/REPOSUBMODULE
+cd REPOSUBMODULE
+```
+Veremos algo como:
+```bash
+✓ Created repository PIBSAS/REPOSUBMODULE on GitHub
+Cloning into 'REPOSUBMODULE'...
+warning: You appear to have cloned an empty repository.
+```
+
+- Agregamos un submodule al root de nuestro repo o indicando ruta de donde va a estar, esto clonara una repo propia o ajena a nuestro repo, pero en el commit actual
+- en que esté:
+
+```bash
+git submodule add git@github.com:PIBSAS/Install_GHDL_WSL.git
+```
+
+- Iniciamos el submodulo y actualizamos, obviamente no obtendremos actualización alguna, pero será un paso que en el futuro haremos si nos enteramos que se actualizó:
+```bash
+git submodule update --init --recursive
+```
+
+- Y realizariamos un add, commit, y push:
+```bash
+git add .
+git commit -m "Agrega submódulo Install_GHDL_WSL"
+git push -u origin main
+```
+
+## Si quisiese que este en otra ruta de la repo:
+
+```bash
+mkdir -p mejoras/ghdl
+git submodule add git@github.com:PIBSAS/Install_GHDL_WSL.git mejoras/ghdl
+git submodule update --init --recursive
+git add .
+git commit -m "Agrega submódulo Install_GHDL_WSL en mejoras/ghdl"
+git push -u origin main
+```
