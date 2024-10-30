@@ -445,16 +445,14 @@ gh repo create REPOSUBMODULE --public
 gh repo clone PIBSAS/REPOSUBMODULE
 cd REPOSUBMODULE
 ```
-Veremos algo como:
+Resultado esperado:
 ```bash
 ✓ Created repository PIBSAS/REPOSUBMODULE on GitHub
 Cloning into 'REPOSUBMODULE'...
 warning: You appear to have cloned an empty repository.
 ```
 
-- Agregamos un submodule al root de nuestro repo o indicando ruta de donde va a estar, esto clonara una repo propia o ajena a nuestro repo, pero en el commit actual
-- en que esté:
-
+- Agregamos un submodule al root de nuestro repo o indicando ruta de donde va a estar, esto clonara una repo propia o ajena a nuestro repo, pero en el commit actual en que esté:
 ```bash
 git submodule add git@github.com:PIBSAS/Install_GHDL_WSL.git
 ```
@@ -472,12 +470,15 @@ git push -u origin main
 ```
 
 ## Si quisiese que este en otra ruta de la repo:
-
 ```bash
-mkdir -p mejoras/ghdl
 git submodule add git@github.com:PIBSAS/Install_GHDL_WSL.git mejoras/ghdl
 git submodule update --init --recursive
 git add .
 git commit -m "Agrega submódulo Install_GHDL_WSL en mejoras/ghdl"
 git push -u origin main
+```
+
+- Si repites este paso y te da conflicto elimina el submodulo creado anteriormente:
+```bash
+rm -rf .git/modules/mejoras/ghdl
 ```
