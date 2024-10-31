@@ -555,9 +555,10 @@ git commit -m "Agrega submódulo desde el Fork"
 git push -u origin main
 ````
 
-- Realizamos un cambio, aunque sea minusculo, lo unico que cambiara será en nnuestro fork.
+- Realizamos un cambio, aunque sea minusculo, lo unico que cambiara será en nnuestro fork, nos aseguramos de que esp-idf este en master con un checkout.
 ````bash
 cd esp-idf
+git checkout master
 nano README.md
 ````
 
@@ -571,7 +572,8 @@ git push origin master
 - Regresamos al root del repo y pasamos los cambios:
 ````bash
 cd ..
-git add .
-git commit -m "cambio hecho al readme de esp-idf en el fork"
+git submodule update --remote esp-idf
+git add esp-idf  # Esto actualizará la referencia del submódulo
+git commit -m "Actualiza el submódulo esp-idf a la última versión"
 git push -u origin main
 ````
