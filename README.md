@@ -482,3 +482,23 @@ git push -u origin main
 ```bash
 rm -rf .git/modules/mejoras/ghdl
 ```
+
+## Modificaciones en los submodulos sin enviar los cambios a los autores:
+- Por ejemplo nos movemos a donde se encuentra el submodulo y modificamos algo, fácil, el README:
+````bash
+cd mejoras/ghdl
+nano README.md
+````
+- Tras modificar y guardar el archivo, agregamos los cambios y haccemos un commit:
+````bash
+git add .
+git commit -m "Mejoras insertadas al README"
+````
+
+- Regresamos al root de la repo y agregamos esos cambios, hacemos un commit y el push:
+````bash
+cd ../../
+git add .
+git commit -m "Cambios hechos en el submodulo"
+git push -u origin main
+````
