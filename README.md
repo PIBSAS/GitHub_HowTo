@@ -503,3 +503,75 @@ git add .
 git commit -m "Cambios hechos en el submodulo mediante nueva rama"
 git push -u origin main
 ````
+
+## Creando un Fork del repo ajeno y luego utilizar el fork como submodulo:
+````bash
+gh repo fork espressif/esp-idf
+````
+- Se crea y nos consulta si deseamos clonarlo, indicamos que si, aunque no tiene sentido si lo vamos a usar desde la repo como submodulo:
+````bash
+✓ Created fork PIBSAS/esp-idf
+? Would you like to clone the fork? Yes
+Cloning into 'esp-idf'...
+remote: Enumerating objects: 673982, done.
+remote: Counting objects: 100% (9539/9539), done.
+remote: Compressing objects: 100% (3825/3825), done.
+remote: Total 673982 (delta 5839), reused 8913 (delta 5441), pack-reused 664443 (from 1)
+Receiving objects: 100% (673982/673982), 300.95 MiB | 3.64 MiB/s, done.
+Resolving deltas: 100% (494572/494572), done.
+Updating files: 100% (15448/15448), done.
+From github.com:espressif/esp-idf
+ * [new branch]            audio/stack_on_psram_v3.3               -> upstream/audio/stack_on_psram_v3.3
+ * [new branch]            customer/11kv_v4.0_xiaomi               -> upstream/customer/11kv_v4.0_xiaomi
+ * [new branch]            customer/maintain_v4.0_xiaomi_tsf_issue -> upstream/customer/maintain_v4.0_xiaomi_tsf_issue
+ * [new branch]            master                                  -> upstream/master
+ * [new branch]            release/v2.0                            -> upstream/release/v2.0
+ * [new branch]            release/v2.1                            -> upstream/release/v2.1
+ * [new branch]            release/v3.0                            -> upstream/release/v3.0
+ * [new branch]            release/v3.1                            -> upstream/release/v3.1
+ * [new branch]            release/v3.2                            -> upstream/release/v3.2
+ * [new branch]            release/v3.3                            -> upstream/release/v3.3
+ * [new branch]            release/v4.0                            -> upstream/release/v4.0
+ * [new branch]            release/v4.1                            -> upstream/release/v4.1
+ * [new branch]            release/v4.2                            -> upstream/release/v4.2
+ * [new branch]            release/v4.3                            -> upstream/release/v4.3
+ * [new branch]            release/v4.4                            -> upstream/release/v4.4
+ * [new branch]            release/v5.0                            -> upstream/release/v5.0
+ * [new branch]            release/v5.1                            -> upstream/release/v5.1
+ * [new branch]            release/v5.2                            -> upstream/release/v5.2
+ * [new branch]            release/v5.3                            -> upstream/release/v5.3
+ * [new branch]            release/v5.4                            -> upstream/release/v5.4
+✓ Cloned fork
+````
+
+- Volvemos a nuestro repo y agregamos el fork:
+````bash
+cd
+cd REPOSUBMODULE
+git submodule add git@github.com:PIBSAS/esp-idf
+git submodule update --init --recursive
+git add .
+git commit -m "Agrega submódulo desde el Fork"
+git push -u origin main
+````
+
+- Realizamos un cambio, aunque sea minusculo, lo unico que cambiara será en nnuestro fork.
+````bash
+cd esp-idf
+nano README.md
+````
+
+- Tras modificar y guardar el archivo, agregamos los cambios y haccemos un commit y push, en este caso debemos saber como se llama la rama principal del fork, en esp-idf en lugar de main es master:
+````bash
+git add .
+git commit -m "Mejoras insertadas al README"
+git push origin master
+````
+
+- Regresamos al root del repo y pasamos los cambios:
+````bash
+cd ..
+git add .
+git commit -m "cambio hecho al readme de esp-idf en el fork"
+git push -u origin main
+````
