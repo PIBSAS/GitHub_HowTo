@@ -317,20 +317,26 @@ gh repo create NOMBRE_REPO --public
 ### Debemos clonar el repositorio creado, pero también se usa cuando necesitamos clonar un repo ya creado:
 ````bash
 gh repo clone ${U}/NOMBRE_REPO
-cd NOMBRE_REPO
 ````
 
+### Nos movemos al repo clonado:
+
+````bash
+cd NOMBRE_REPO
+````
 ### Creamos un Readme.md de ejemplo:
 ````bash
 echo "# REPO creada desde la compu con gh" > README.md
 ````
 
 ### Pasos normales, para agregar cambios, hacer el commir y enviarlo a GitHub:
+
 ````bash
 git add .
 git commit -m "Primer commit: añadir README.md"
 git push -u origin main
-```
+````
+
 - Te dirá que haz clonado un repo vacio, al clonar, pero luego haces un echo y lo guardas a lo entrecomillado en un archivo y lo subes a esa repo, puedes abrir el navegador y encontrar este repo creado desde tu pc.
 
 ## Si elegiste SSH y no HTTPS:
