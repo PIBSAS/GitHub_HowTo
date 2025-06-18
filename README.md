@@ -292,16 +292,41 @@ Press Enter to open github.com in your browser... (Aca en realidad debemos presi
 ```
 ## Tras esto podremos clonar, crear, hacer pull request, actions, workflows, issues. Pero para agregar contenido y hacer push aun usaremos git, asi también para nuestras credenciales.
 
-```bash
+### Declarar tu usuario:
+````bash
 U="PIBSAS"
+````
+
+### Declarar tu correo:
+````bash
 M="correo@gmail.com"
+````
+
+### Configurar GitHub con tus datos, para que no te pida las credenciales:
+```bash
 git config --global user.email ${M}
 git config --global user.name ${U}
 git config --global --replace-all credential.helper store
+````
+
+### Como crear repo desde tu dispositivo:
+````bash
 gh repo create NOMBRE_REPO --public
+````
+
+### Debemos clonar el repositorio creado, pero también se usa cuando necesitamos clonar un repo ya creado:
+````bash
 gh repo clone ${U}/NOMBRE_REPO
 cd NOMBRE_REPO
+````
+
+### Creamos un Readme.md de ejemplo:
+````bash
 echo "# REPO creada desde la compu con gh" > README.md
+````
+
+### Pasos normales, para agregar cambios, hacer el commir y enviarlo a GitHub:
+````bash
 git add .
 git commit -m "Primer commit: añadir README.md"
 git push -u origin main
