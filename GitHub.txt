@@ -1,0 +1,207 @@
+Crear repositorio desde PC o Pi:
+
+Debes indicar un nombre no usado, es decir, es obvio, que "repositorio" NO ES LO QUE DEBES PONER DE NOMBRE, sino uno inventado por vos!. RECOMENDACION: Usar letras minúsculas, un solo nombre y no un padre nuestro, si requerís un padre nuestro usa guion bajo ( _ ) para los espacios entre la oración, y si se te da por las comas, usa guion medio ( - ). JAMAS USES ( . , ! # * & % ? ¡ ¿ ) en un nombre, ya que es el nombre de una carpeta y Windows o Linux fallan al ver atrocidades, ah y VES, los nombres propios tienen Mayúsculas, así como cada palabra después de un punto, así como cada palabra tiene un espacio tras cualquier signo de puntuación.
+
+
+gh repo create eliazmonzon/repositorio --public
+
+Clonar repositorio recién creado:
+
+Tras crearlo desde la Pi o PC, debes clonarlo para traerlo desde otro país a tu dispositivo:
+
+gh repo clone eliasmonzon/repositorio
+
+
+
+Esto también es válido para cuando clonas el repo de alguien extraño, o sea que no sos vos, para afanarte su código, luego harás tu propia repo con sus códigos, si, esto lo haces SIEMPRE al bajar Librerías. En estos casos de clonación, variarás tu nombre de usuario por el del extraño, luego crearas un nuevo repo donde meterás su código para hacerlo tuyo, y finalmente borraras esta clonación, porque no tenes cosas de extraños en tu casa, menos en tu Pi o PC jeje. En donde harías:
+
+gh repo clone extraño/tesoros
+
+gh repo create eliasmonzon/mis_tesoros --public
+
+gh repo clone eliasmonzon/mis_tesoros
+mv extraño/tesoros/códigos.anda_a_saber eliasmonzon/mis_tesoros
+
+O usas el explorador para mover lo que te quieras afanar y lo pegas en tu nuevo repo
+
+
+Sean cual sean tus pasos, es decir clonar repo de extraño, o solo inventar uno propio, harás exactamente lo mismo!!!
+
+HACER ALGO!!!
+
+Y que significa hacer algo?
+En tu caso, puede ser ir a kicad y desarrollar una nueva placa, generar un nuevo case 3D con Freecad, crear códigos con Thonny así sea solo de práctica de Micropython u otro lenguaje, crear diagramas de circuitos para documentación, crear Fritzing para los que no saben leer un diagrama, armar un excel con la lista de componentes que lleva una placa, crear documentación para que cuando lo agarres al archivo sepas de que era, guardar imágenes del proyecto, sean las creadas por Kicad, las capturas de Freecad, fotos de internet que muestran el pinout real, texto con enlaces a librerías, videos, etc, etc..
+
+Tras que "hiciste algo" siempre en tu dispositivo (Pi o PC), enviarás los códigos a otro país:
+
+cd repositorio
+git add .
+git commit -m "mensaje descriptivo"
+git push -u origin main
+
+LISTO!!!
+
+Ahora casos de uso "especiales" tan especiales, que para vos, serán normales:
+
+Cómo tendrás Pi y PC, habrán días que crees o edites en uno o en otro dispositivo, y como son mágicos, debes decirles, che bobo, en el laburo hice un cambio, o eh bobo en mi casa hice un cambio, tráemelo que no lo veo!!.
+
+git pull origin main
+
+Ja era re fácil!, lo acabo de probar je, hice un repo, cree un README.md con el texto lafa, fui a otro país y edite el archivo escribiendo alfa romeo, luego volví a la PC e hice git pull origin main y ahora el README.md dice alfa romeo en vez de lafa.
+
+Entonces, habrá días, que crearás en tu notebook, haciendo create, clone, git add, git commit, git push. Mientras que en tu Pi haras clone, git add. git commit, git push. excepto que ya con un repo clonado y que laburaste en la netbook, harás git pull para traer los cambios, y git push para subir los nuevos cambios, que luego en tu notebook, traeras con git pull, ya que la pi hizo un git push
+
+Es decir, si ya tenes un repo en ambos dispositivos estarás:
+
+Traer a PC porque hiciste cambios en la Pi:
+git pull origin main
+
+Traer a Pi porque hiciste cambios en la PC:
+git pull origin main
+
+
+
+
+
+
+
+
+Qué es un  README.md?
+
+Es un archivo de TEXTO llamado Leéme!!! En el idioma comercial elegido a nivel mundial para comunicarse con seres humanos y hacer negocios!, su extensión es .md porque el "texto" se llama Mark Down.
+Y como los txt de GitHub son con otra extensión, les da características que este txt no posee, como son:
+
+Títulos:
+
+# Título
+
+Lo que en HTML llamamos <h1> encabezado 1, el cuál tiene la letra de mayor tamaño
+
+## Encabezado
+Equivalente a <h2> la segunda letra más grande, entonces es menor que #.
+
+### Sub-Título
+Equivalente a <h3> la tercer letra más grande, entonces es menor que ##.
+
+#### Sub Sub-titulo ¿Ni idea como se llama?
+Equivalente a <h4> la cuarta letra más grande, entonces es menor que ###.
+
+Y supongo como <h> va del 1 al 6, acá será igual
+
+##### Sub Sub Sub-Título?
+###### Sub Sub Sub Sub-Titulo?
+
+Para enumerar cosas como carpetas usas o números o viñetas, que aca se crean con guion medio
+
+1. bla
+2. ble 
+
+Notar que va un espacio tras el punto. Además debe haber un espacio arriba y abajo, para que se formatee bien
+
+- bla
+- ble
+
+Además, cuando hacemos tab adelante de las viñetas, logramos que varíen su forma, circulo solido, circulo hueco, cuadrado, es decir, no es lo mismo:
+
+- bla que
+	- bla que
+		- ble
+
+Otra decoración es usar negrita(bold), inclinada(Italic):
+
+Negrita:
+**Se las ve negra**
+
+Inclinada:
+*Torre de Pizza*
+
+Para cuando escribís texto que pertenece a sintaxis de código podes usar el acento invertido, uno para sintaxis en la misma línea que escribís texto normal:
+
+Esto es un `print` formateado cómo código.
+
+2 ` o más para un bloque de código, si pones 2 no tendrá la opción de copiar, si pones 3 o 4, tendrá un icono de copiado:
+
+Este es el código de la teta manti:
+
+``
+Tenia bubis
+Muchas bubis
+``
+
+Pero ese no da la opción de copia, esto si:
+
+````
+Tetas
+tetas
+bubis
+````
+
+Notar que siempre va un espacio por encima y otro por debajo, es decir:
+
+# knkadkbskfnkddndkv:
+
+- knsihfinsskfn *nksnfkjndds*
+- **ndnfojodf**
+
+
+``
+código
+``
+
+````
+otro código
+````
+
+
+Cómo agregar imágenes para mejor chetaje:
+
+Las imágenes si están en tu repo, ponelas en una carpeta llamada img:
+
+Entonces, las podes reutilizar:
+
+![Imagen del circuito 1](img/foto.png)
+
+Si la imagen esta en una web ajena o tuya:
+
+![Imagen del circuito ](https://www.tuya.com/foto.png)
+
+Y si querés porque los diarios y libros lo hicieron durante siglos:
+
+![Imagen del circuito 1](img/foto.png "Texto descriptivo de la foto, justo bajo ella")
+
+
+Enlaces o hiperenlaces, los usas para que te lleven directo a un código en la repo o a un archivo o a un datasheet en una web, o simplemente un link a tu web:
+
+# Titulo
+
+- En el siguiente código [Pulsador esp now.py](Entrenador esp mini c3/Pulsador esp now.py) 
+NOTA: Acá estas cometiendo una atrocidad! Linux toma eso como Carpeta Entrenador/ Carpeta esp/ Carpeta mini/ Carpeta c3/con_archivo_Pulsador Sin ninguna extensión, lo cuál puede que no lo interprete y no encuentre NADA!!!!
+
+Como debería ser:
+
+- En el siguiente código [pulsador_esp_now.py](entrenador_esp-mini-c3/pulsador_esp_now.py)
+Y no fallaría!
+
+O seguir terca!:
+- En el siguiente código [Pulsador esp now.py](Entrenador\ esp\ mini\ c3/Pulsador\ esp\ now.py) 
+O:
+- En el siguiente código [Pulsador esp now.py]("Entrenador esp mini c3"/"Pulsador esp now".py) 
+
+Y rogar que funcione. VES NOMBRES DE ARCHIVOS TODO EL TIEMPO, no VES que no usan espacios???, Abri eso que se llama OJOS!
+
+En definitiva todos tus códigos jamás serán encontrados por un editor. O deberas escapar el texto para que el editor vea los espacios. Cosa rara no? en Librería, da la puta casualidad que ningún archivo contiene espacios WOw!. Por que será no? Porque usan las convenciones!!!
+
+# Convenciones:
+
+- Evitar ESPACIOS, reemplazarlos con guiones bajos "_"
+- Evitar uso de Mayúsculas, ya que éstas indican CONSTANTES, no Nombres de Archivos!, a menos que estés nombrando una marca, unas siglas, un protocolo o una tecnología(Es decir todos nombres propios=Sustantivos Propios). Los sustantivos comunes solamente van en minúsculas.
+- Si es el nombre de una placa comienza con mayúsculas y podes optar por conectarla con guiones medios y no con guiones bajos como: "Entrenadora-mini-C3" porque C3 es el nombre del modelo de esp.
+- Los Nombres de Directorios, es decir Carpetas, por lo general, se escriben en minúsculas, mira el árbol de directorios en Linux.
+
+
+Enlace a una web o video:
+
+- [Video](https://xvideos.com)
+- [Electrónica y Diagramas](https://sites.google.com/view/electronica-y-diagramas)
+
+Y en tu GitHub ahora online, anda a tu perfil y agrega la web que tenes en google asi te sale ahí y podes tener una nueva fuente de visitas.
